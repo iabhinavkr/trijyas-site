@@ -1,95 +1,107 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Contact - Trijyas.in</title>
-    <base href="../">
-    <link rel="stylesheet" href="files/css/base.css" />
-    <link async rel="stylesheet" href="files/css/light.css" />
-    <link async rel="stylesheet" href="files/icon/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="files/js/index.js" ></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found — Trijyas</title>
+    <meta name="description" content="The page you're looking for doesn't exist.">
 
-    <!-- Google tag (gtag.js) -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TBNP2N5ZYK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  gtag('config', 'G-TBNP2N5ZYK');
+    <!-- Styles -->
+    <link rel="stylesheet" href="files/css/base.css">
+    <link rel="stylesheet" href="files/icon/style.css">
 
-    (function () {
-        var path = window.location.pathname;
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TBNP2N5ZYK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-TBNP2N5ZYK');
 
-        // Normalize (remove trailing slash)
-        if (path.length > 1 && path.endsWith("/")) {
-          path = path.slice(0, -1);
+        // Redirect logic for legacy routes
+        (function () {
+            var path = window.location.pathname;
+            if (path.length > 1 && path.endsWith("/")) {
+                path = path.slice(0, -1);
+            }
+            if (path.startsWith("/apps/grid-app-for-artists")) {
+                window.location.replace("/apps/grid-app-for-artists/");
+                return;
+            }
+        })();
+    </script>
+
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
         }
-
-        // Match /app or anything under /app/*
-        if (path.startsWith("/apps/grid-app-for-artists")) {
-          window.location.replace("/apps/grid-app-for-artists/");
-          return;
+        .error-code {
+            font-size: clamp(5rem, 15vw, 10rem);
+            font-weight: 900;
+            background: var(--clr-gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 0.5rem;
         }
-
-        // Optional: fallback
-        // window.location.replace("/");
-      })();
-</script>
+        .error-page h2 {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            margin-bottom: 1rem;
+        }
+        .error-page p {
+            color: var(--clr-text-muted);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="site">
-    <div id="topbar" class="coloredbg">
-        <div class="logo">
-            <object type="image/svg+xml" data="files/res/logo1.svg">Your browser does not support SVG</object>
-            <span>TRIJYAS</span>
-        </div>
-        <div id="nav" class="icon icon-bars">
-            <a class="nav-item" href="#">Home</a>
-            <a class="nav-item" href="services">Services
-                <div class="nav">
-                    <a class="nav-item" href="services/#apps">Apps</a>
-                    <a class="nav-item" href="services/#website">Website</a>
-                    <a class="nav-item" href="services/#custom">Custom Solutions</a>
-                </div>
+    <!-- ===== NAVBAR ===== -->
+    <nav id="navbar" class="scrolled">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">
+                <object type="image/svg+xml" data="files/res/logo1.svg" aria-label="Trijyas Logo">Trijyas</object>
+                <span>Trijyas</span>
             </a>
-            <!--<a class="nav-item">Blog</a>-->
-            <a class="nav-item" href="about">About Us</a>
-            <a class="nav-item" href="contact">Contact</a>
-            <!--<span class="nav-item">🔍</span>-->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#product">Product</a></li>
+                <li><a href="/#about">About</a></li>
+                <li><a href="contact" class="nav-cta">Contact Us</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-    </div>
+    </nav>
 
+    <main class="error-page">
+        <div class="error-code">404</div>
+        <h2>Page Not Found</h2>
+        <p>Looks like you've wandered off the grid. Let's get you back.</p>
+        <a href="/" class="btn btn-primary">Back to Home</a>
+    </main>
 
-
-    <div style="text-align: center;">
-            <h2>Page not available</h2>
-    </div>
-            
-        
-
-    <div id="footer" class="coloredbg" style="text-align: center;">
-        <div class="socialLinks">
-            <a class="icon icon-instagram" href="https://www.instagram.com/trijyas.in/"></a>
-            <a class="icon icon-twitter" href="https://twitter.com/trijyas_in"></a>
-            <a class="icon icon-linkedin" href="https://www.linkedin.com/company/trijyas"></a>
-            <a class="icon icon-discord" href="https://discord.gg/Kjgc2qGCrD"></a>
-            <a class="icon icon-youtube" href="https://www.youtube.com/@trijyas_in"></a>
-            <a class="icon icon-telegram" href="https://t.me/trijyas"></a>
-            <a class="icon icon-whatsapp" href="https://whatsapp.com/channel/0029VamRAKD4o7qMN3IGBX24"></a>
-            <a class="icon icon-envelope" href="mailto:support@trijyas.in"></a>
-        </div>
-        <div id="footer-nav">
-            <a class="nav-item" href="about">ABOUT US</a>
-            <a class="nav-item" href="privacy">PRIVACY POLICY</a>
-            <a class="nav-item" href="terms">TERMS OF SERVICE</a>
-        </div>
-        <div id="copyright">Copyright © 2022 Trijyas</div>
-    </div>
-        
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+    </script>
 </body>
-
 </html>

@@ -1,178 +1,387 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Trijyas.in</title>
-    <base href=".">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trijyas — Creating Digital Solutions</title>
+    <meta name="description" content="Trijyas creates beautiful, fast, and user-friendly digital products — websites, mobile apps, and custom software solutions built with precision and passion.">
     <link rel="canonical" href="https://trijyas.in/">
-    <link rel="stylesheet" href="files/css/base.css" />
-    <link async rel="stylesheet" href="files/css/light.css" />
-    <link async rel="stylesheet" href="files/icon/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="files/js/index.js" ></script>
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+    <!-- Styles -->
+    <link rel="stylesheet" href="files/css/base.css">
+    <link rel="stylesheet" href="files/icon/style.css">
 
-    <!-- Google tag (gtag.js) -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TBNP2N5ZYK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TBNP2N5ZYK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-TBNP2N5ZYK');
+    </script>
 
-  gtag('config', 'G-TBNP2N5ZYK');
-</script>
-
-<!-- Cookie Consent by TermsFeed https://www.TermsFeed.com -->
-<script type="text/javascript" src="https://www.termsfeed.com/public/cookie-consent/4.0.0/cookie-consent.js" charset="UTF-8"></script>
-<script type="text/javascript" charset="UTF-8">
-document.addEventListener('DOMContentLoaded', function () {
-cookieconsent.run({"notice_banner_type":"simple","consent_type":"express","palette":"light","language":"en","page_load_consent_levels":["strictly-necessary"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"Trijyas","website_privacy_policy_url":"https://trijyas.in/privacy/"});
-});
-</script>
-
-
+    <!-- Cookie Consent -->
+    <script type="text/javascript" src="https://www.termsfeed.com/public/cookie-consent/4.0.0/cookie-consent.js" charset="UTF-8"></script>
+    <script type="text/javascript" charset="UTF-8">
+        document.addEventListener('DOMContentLoaded', function () {
+            cookieconsent.run({
+                "notice_banner_type": "simple",
+                "consent_type": "express",
+                "palette": "dark",
+                "language": "en",
+                "page_load_consent_levels": ["strictly-necessary"],
+                "notice_banner_reject_button_hide": false,
+                "preferences_center_close_button_hide": false,
+                "page_refresh_confirmation_buttons": false,
+                "website_name": "Trijyas",
+                "website_privacy_policy_url": "https://trijyas.in/privacy/"
+            });
+        });
+    </script>
 </head>
 
 <body>
-    <div class="site">
-    <div id="topbar" class="coloredbg">
-        <div class="logo">
-            <object type="image/svg+xml" data="files/res/logo1.svg">Your browser does not support SVG</object>
-            <span>TRIJYAS</span>
-        </div>
-        <div id="nav" class="icon icon-bars">
-            <a class="nav-item" href="#">Home</a>
-            <a class="nav-item" href="services">Services
-                <div class="nav">
-                    <a class="nav-item" href="services/#apps">Apps</a>
-                    <a class="nav-item" href="services/#website">Website</a>
-                    <a class="nav-item" href="services/#custom">Custom Solutions</a>
-                </div>
+    <!-- ===== NAVBAR ===== -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <a href="#hero" class="nav-logo">
+                <object type="image/svg+xml" data="files/res/logo1.svg" aria-label="Trijyas Logo">Trijyas</object>
+                <span>Trijyas</span>
             </a>
-            <!--<a class="nav-item">Blog</a>-->
-            <a class="nav-item" href="about">About Us</a>
-            <a class="nav-item" href="contact">Contact</a>
-            <!--<span class="nav-item">🔍</span>-->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#product">Product</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="contact" class="nav-cta">Contact Us</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section id="hero">
+        <div class="hero-bg-glow hero-glow-1"></div>
+        <div class="hero-bg-glow hero-glow-2"></div>
+        <div class="hero-bg-glow hero-glow-3"></div>
+
+        <div class="hero-content">
+            <div class="hero-badge fade-in">Creating Digital Excellence</div>
+            <h1 class="hero-title fade-in fade-in-delay-1">
+                Building Solutions<br>
+                That <span class="gradient-text">Inspire</span>
+            </h1>
+            <p class="hero-subtitle fade-in fade-in-delay-2">
+                We craft beautiful, fast, and user-friendly digital products — blending 
+                UX research with innovative development to create experiences people love.
+            </p>
+            <div class="hero-actions fade-in fade-in-delay-3">
+                <a href="#services" class="btn btn-primary">Explore Services</a>
+                <a href="#about" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section id="services">
+        <div class="container">
+            <div class="section-header centered fade-in">
+                <span class="section-label">What We Do</span>
+                <h2 class="section-title">Digital Services Built on UX</h2>
+                <p class="section-desc">
+                    From concept to launch, we deliver solutions that are beautiful, performant, 
+                    and designed around real user needs.
+                </p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card fade-in fade-in-delay-1">
+                    <div class="service-icon">
+                        <span class="icon icon-earth"></span>
+                    </div>
+                    <h3>Web Design</h3>
+                    <p>Responsive, fast, and beautifully crafted websites that make a lasting first impression and drive results.</p>
+                </div>
+                <div class="service-card fade-in fade-in-delay-2">
+                    <div class="service-icon">
+                        <span class="icon icon-apps"></span>
+                    </div>
+                    <h3>App Development</h3>
+                    <p>Lightweight, smooth, and efficient mobile applications built with performance and user experience at the core.</p>
+                </div>
+                <div class="service-card fade-in fade-in-delay-3">
+                    <div class="service-icon">
+                        <span class="icon icon-tools1"></span>
+                    </div>
+                    <h3>Custom Solutions</h3>
+                    <p>Need specialised software? We build tailored solutions that solve your unique business challenges.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== QUALITY STRIP ===== -->
+    <div class="quality-strip">
+        <div class="container fade-in">
+            <h3>Professional Quality, Every Time</h3>
+            <p>Our approach of Research, Build, Refine and Reimagine makes our services uniquely user‑friendly, innovative, and competitive.</p>
         </div>
     </div>
 
-    <div id="home" class="container active">
+    <!-- ===== PRODUCT: GRID APP ===== -->
+    <section id="product">
+        <div class="container">
+            <div class="product-showcase">
+                <div class="product-info fade-in">
+                    <span class="section-label">Featured Product</span>
+                    <h2>Grid App for Artists</h2>
+                    <p>
+                        The grid method made effortless. Draw grids on your reference photos — 
+                        by boxes or true‑to‑scale — for better proportional analysis. 
+                        Fully customisable, blazingly fast, and loved by artists worldwide.
+                    </p>
 
-        <!--<a href="gridfest2026/" ><img src="files/img/GridFest2026_Banner.png" style="position: relative; display: block; margin: 50px auto; max-width: 960px;" width="100%" alt="Grid Fest 2026, Giveaway worth"></a>-->
+                    <div class="product-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">200K+</span>
+                            <span class="stat-label">Downloads</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">4.4★</span>
+                            <span class="stat-label">Rating</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">700+</span>
+                            <span class="stat-label">Reviews</span>
+                        </div>
+                    </div>
 
-        <section id="home-1" class="imageSection">
-            <div id="home-intro" class="imageIntro">
-                <h2>Creating Digital Solutions</h2>
-                <p>Start your journey with us.</p>
-                <a href="services"><button>Start Now!</button></a>
-                <!--<button class="secondary">Contact Us</button>-->
-            </div>
-            <img src="files/res/hero-bg.webp">
-        </section>
+                    <a href="https://play.google.com/store/apps/details?id=com.ar4j.grid4artists" 
+                       class="download-badge" target="_blank" rel="noopener noreferrer">
+                        <img src="files/res/google-play.webp" alt="Get it on Google Play">
+                    </a>
+                </div>
 
-        <section>
-            <h2>
-                We create digital services based on UX
-            </h2>
-            <div class="card">
-                <span class="icon icon-earth" style="background-color: #FF5151;"></span>
-                <h3>Web Design</h3>
-                <p>Building fast & beautiful websites.</p>
-            </div>
-            <div class="card">
-                <span class="icon icon-apps" style="background-color: #51A2FF;"></span>
-                <h3>App Developement</h3>
-                <p>Creating smooth & light-weight apps.</p>
-            </div>
-            <div class="card">
-                <span class="icon icon-tools1" style="background-color: #33CA94;"></span>
-                <h3>Custom Solutions</h3>
-                <p>Need specialised software? We are here to help.</p>
-            </div>
-        </section>
-
-        <!--<section>
-            <h2>
-                Our Team
-            </h2>
-            <div class="card profile">
-                <img src="files/img/ayush.jpg">
-                <h3>Ayush Raj</h3>
-                <span>Developer</span>
-                <p>Building fast & beautiful websites.</p>
-                <div>
-                    <a href="https://www.facebook.com/ayushr4j/" class="socialmedia icon icon-facebook"></a>
-                    <a href="https://www.instagram.com/ar4j.in/" class="socialmedia icon icon-instagram"></a>
-                    <a href="https://www.linkedin.com/in/ayushr4j/" class="socialmedia icon icon-linkedin"></a>
+                <div class="product-visual fade-in fade-in-delay-2">
+                    <div class="product-image-wrap">
+                        <img src="files/res/gridapp.webp" alt="Grid App for Artists screenshot">
+                    </div>
+                    <div class="product-glow"></div>
                 </div>
             </div>
-            <div class="card profile">
-                <img src="files/img/abhinav.jpg">
-                <h3>Abhinav Kumar</h3>
-                <span>Team Leader</span>
-                <p>Building fast & beautiful websites.</p>
-                <div>
-                    <a href="https://www.instagram.com/iabhinavkr/" class="socialmedia icon icon-instagram"></a>
-                </div>
-            </div>
-            <div class="card profile">
-                <img src="files/img/shreya.jpg">
-                <h3>Shreya</h3>
-                <span>Designer</span>
-                <p>Building fast & beautiful websites.</p>
-                <div>
-                    <a href="https://www.facebook.com/Shreya5art/" class="socialmedia icon icon-facebook"></a>
-                    <a href="https://www.instagram.com/shreya5art/" class="socialmedia icon icon-instagram"></a>
-                    <a href="https://www.youtube.com/c/shreya5art" class="socialmedia icon icon-youtube"></a>
-                </div>
-            </div>
-            <div class="card profile">
-                <img src="files/img/sangeet.jpg">
-                <h3>Sangeet Raj</h3>
-                <span>Designer</span>
-                <p>Building fast & beautiful websites.</p>
-                <div>
-                    <a href="https://www.instagram.com/mesangeet/" class="socialmedia icon icon-instagram"></a>
-                    <a href="https://twitter.com/sangeetraj4" class="socialmedia icon icon-twitter"></a>
-                    <a href="https://www.linkedin.com/in/sangeetraj/" class="socialmedia icon icon-linkedin"></a>
-                </div>
-            </div>
-        </section>-->
-        <section class="imageSection">
-            <div id="home-outro" class="imageIntro">
-                <h3>
-                    Professional quality delivered!
-                </h3>
-                <p>UX and UI’s fine blend is the requirement of any digital products. Our approach of Research, Build,
-                    Refine and Reimagining makes our services unique, user friendly and competitive.</p>
 
+            <!-- Reviews -->
+            <div style="margin-top: 4rem;">
+                <h3 class="fade-in" style="font-size: 1.4rem; margin-bottom: 1.5rem;">Loved by Artists</h3>
+                <div class="reviews-scroll fade-in fade-in-delay-1">
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Have tried lots of grid apps but you can't custom the cell size and paper size to get the proportional scale correct, with this you can! User friendly and even has real size — thank you!"</p>
+                        <div class="review-author">Emily Wicker</div>
+                        <div class="review-role">Artist</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"The app is Excellent! Has all the features an artist needs. ✨🙌"</p>
+                        <div class="review-author">Divyanshi Rashi Art</div>
+                        <div class="review-role">Artist</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"According to me this is the best app for grid making for artists. I would suggest everyone to use it at least once. You will definitely love it. ❤️"</p>
+                        <div class="review-author">Debashis_arts</div>
+                        <div class="review-role">Artist</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Excellent grid app. Doesn't affect the quality of the image even a bit, it's a big plus. Hassle free and quick. Absolutely happy with the app!!"</p>
+                        <div class="review-author">Nikhita P.S</div>
+                        <div class="review-role">Artist</div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"It's the best grid maker app in my perspective, after experiencing all the features and functions my only reaction was like 'wowwwwww'"</p>
+                        <div class="review-author">Parag Edalwar</div>
+                        <div class="review-role">Artist</div>
+                    </div>
+                </div>
             </div>
-            <img id="homeoutroImage" src="files/res/art-1.webp">
-        </section>
-    </div>
-
-    <div id="footer" class="coloredbg">
-        <div class="socialLinks">
-            <a class="icon icon-instagram" href="https://www.instagram.com/trijyas.in/"></a>
-            <a class="icon icon-twitter" href="https://twitter.com/trijyas_in"></a>
-            <a class="icon icon-linkedin" href="https://www.linkedin.com/company/trijyas"></a>
-            <a class="icon icon-discord" href="https://discord.gg/Kjgc2qGCrD"></a>
-            <a class="icon icon-youtube" href="https://www.youtube.com/@trijyas_in"></a>
-            <a class="icon icon-telegram" href="https://t.me/trijyas"></a>
-            <a class="icon icon-whatsapp" href="https://whatsapp.com/channel/0029VamRAKD4o7qMN3IGBX24"></a>
-            <a class="icon icon-envelope" href="mailto:support@trijyas.in"></a>
         </div>
-        <div id="footer-nav">
-            <a class="nav-item" href="about">ABOUT US</a>
-            <a class="nav-item" href="privacy">PRIVACY POLICY</a>
-            <a class="nav-item" href="terms">TERMS OF SERVICE</a>
-        </div>
-        <div id="copyright">Copyright © 2022 Trijyas</div>
+    </section>
 
-    </div>
-</div>
+    <!-- ===== ABOUT ===== -->
+    <section id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text fade-in">
+                    <span class="section-label">About Us</span>
+                    <h2>Who We Are</h2>
+                    <p>
+                        We are a team of creative, passionate, and dedicated people working towards 
+                        development of software, apps, and websites. Assuring quality is always our 
+                        main motive — a team from diverse fields who consistently work towards 
+                        achieving excellence in their own unique style.
+                    </p>
+
+                    <div class="about-pillars">
+                        <div class="pillar-card">
+                            <h4>
+                                <span class="pillar-icon icon icon-make-group" style="background: linear-gradient(135deg, #e86031, #e2312d);"></span>
+                                Innovation
+                            </h4>
+                            <p>Feasible, relevant, and fresh. We take each step together so no one gets left behind.</p>
+                        </div>
+                        <div class="pillar-card">
+                            <h4>
+                                <span class="pillar-icon icon icon-protect-icon" style="background: linear-gradient(135deg, #6366f1, #1328E5);"></span>
+                                Privacy
+                            </h4>
+                            <p>Privacy is at our core. We build every relationship around trust and security.</p>
+                        </div>
+                        <div class="pillar-card">
+                            <h4>
+                                <span class="pillar-icon icon icon-find_in_page" style="background: linear-gradient(135deg, #38A8C0, #03c7f4);"></span>
+                                Transparency
+                            </h4>
+                            <p>We value your trust and strengthen it with transparency in our products and services.</p>
+                        </div>
+                        <div class="pillar-card">
+                            <h4>
+                                <span class="pillar-icon icon icon-leaf" style="background: linear-gradient(135deg, #06d6a0, #1A8A18);"></span>
+                                Green Earth
+                            </h4>
+                            <p>We strive to minimize our environmental impact. We love a green and blue earth.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-vision fade-in fade-in-delay-2">
+                    <div class="vision-card">
+                        <h3>Our Aim</h3>
+                        <p>To provide seamless, efficient, feature‑rich, lightweight and class‑leading services with innovation, simplicity and accessibility at the core.</p>
+                    </div>
+                    <div class="vision-card">
+                        <h3>Our Vision</h3>
+                        <p>We aspire to drive the world to be tech‑savvy with simple, efficient and elegant services that help in daily life and bring happiness.</p>
+                    </div>
+                    <div class="vision-card">
+                        <h3>We Listen</h3>
+                        <p>Your feedback, reviews, and suggestions are a treasure to us. We value your time in making our growth more nourishing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer id="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div>
+                    <a href="#hero" class="footer-brand">
+                        <object type="image/svg+xml" data="files/res/logo1.svg" aria-label="Trijyas Logo">Trijyas</object>
+                        <span>Trijyas</span>
+                    </a>
+                    <p class="footer-tagline">Creating digital solutions that inspire and empower.</p>
+                </div>
+
+                <div class="footer-links-group">
+                    <div class="footer-links">
+                        <h4>Navigate</h4>
+                        <ul>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#product">Product</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Connect</h4>
+                        <div class="footer-social">
+                            <a href="https://www.instagram.com/trijyas.in/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="icon icon-instagram"></span></a>
+                            <a href="https://twitter.com/trijyas_in" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><span class="icon icon-twitter"></span></a>
+                            <a href="https://www.linkedin.com/company/trijyas" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><span class="icon icon-linkedin"></span></a>
+                            <a href="https://discord.gg/Kjgc2qGCrD" target="_blank" rel="noopener noreferrer" aria-label="Discord"><span class="icon icon-discord"></span></a>
+                            <a href="https://www.youtube.com/@trijyas_in" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><span class="icon icon-youtube"></span></a>
+                            <a href="https://t.me/trijyas" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><span class="icon icon-telegram"></span></a>
+                            <a href="https://whatsapp.com/channel/0029VamRAKD4o7qMN3IGBX24" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><span class="icon icon-whatsapp"></span></a>
+                            <a href="mailto:support@trijyas.in" aria-label="Email"><span class="icon icon-envelope"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© 2022 – 2026 Trijyas. All rights reserved.</span>
+                <div>
+                    <a href="privacy">Privacy Policy</a>
+                    <a href="terms">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== SCRIPT ===== -->
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+
+        // Close mobile nav on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // Scroll reveal (Intersection Observer)
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    fadeObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        fadeElements.forEach(el => fadeObserver.observe(el));
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY + 200;
+            sections.forEach(section => {
+                const top = section.offsetTop;
+                const height = section.offsetHeight;
+                const id = section.getAttribute('id');
+                const link = document.querySelector(`.nav-links a[href="#${id}"]`);
+                if (link) {
+                    if (scrollY >= top && scrollY < top + height) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>

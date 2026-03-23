@@ -1,0 +1,11 @@
+{
+  "name": "trijyas.github.io",
+  "version": "1.0.0",
+  "description": "Local dev environment for trijyas.github.io",
+  "scripts": {
+    "dev": "serve ."
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}
