@@ -1,52 +1,89 @@
-﻿<!DOCTYPE html>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Privacy Policy - Trijyas.in</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Trijyas</title>
     <base href="../">
     <link rel="canonical" href="https://trijyas.in/privacy/">
-    <link rel="stylesheet" href="files/css/base.css" />
-    <link async rel="stylesheet" href="files/css/light.css" />
-    <link async rel="stylesheet" href="files/icon/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="files/js/index.js" ></script>
 
-    <!-- Google tag (gtag.js) -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TBNP2N5ZYK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  gtag('config', 'G-TBNP2N5ZYK');
-</script>
+    <!-- Styles -->
+    <link rel="stylesheet" href="files/css/base.css">
+    <link rel="stylesheet" href="files/icon/style.css">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TBNP2N5ZYK"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-TBNP2N5ZYK');
+    </script>
+    <style>
+        .legal-page {
+            padding: 8rem 1.5rem 4rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .legal-page h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 0.5rem;
+            background: var(--clr-gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+        .legal-page pre {
+            color: var(--clr-text-muted);
+            margin-bottom: 2rem;
+            font-family: var(--ff-body);
+        }
+        .legal-page h3, .legal-page h4 {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--clr-heading);
+        }
+        .legal-page p, .legal-page ul {
+            color: var(--clr-text);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+        .legal-page ul {
+            padding-left: 1.5rem;
+        }
+        .legal-page li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="site">
-    <div id="topbar" class="coloredbg">
-        <a class="logo" href="/">
-            <object type="image/svg+xml" data="files/res/logo1.svg">Your browser does not support SVG</object>
-            <span>TRIJYAS</span>
-        </a>
-        <div id="nav" class="icon icon-bars">
-            <a class="nav-item" href="#home">Home</a>
-            <a class="nav-item" href="#services">Services
-                <div class="nav">
-                    <a class="nav-item" href="#apps">Apps</a>
-                    <a class="nav-item" href="#website">Website</a>
-                    <a class="nav-item" href="#custom">Custom Solutions</a>
-                </div>
+    <!-- ===== NAVBAR ===== -->
+    <nav id="navbar" class="scrolled">
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">
+                <object type="image/svg+xml" data="files/res/logo1.svg" aria-label="Trijyas Logo">Trijyas</object>
+                <span>Trijyas</span>
             </a>
-            <!--<a class="nav-item">Blog</a>-->
-            <a class="nav-item" href="#about">About Us</a>
-            <a class="nav-item" href="contact">Contact</a>
-            <!--<span class="nav-item">ðŸ”</span>-->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#product">Product</a></li>
+                <li><a href="/#about">About</a></li>
+                <li><a href="/#contact" class="nav-cta">Contact Us</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-    </div>
+    </nav>
 
-    <div id="privacy" class="container terms active">
+    <main class="legal-page">
         <h2>Privacy Policy</h2>
         <pre>Last updated: April 2, 2022</pre>
         <p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your
@@ -245,30 +282,35 @@
                     href="https://www.trijyas.in/contact/">https://www.trijyas.in/contact/</a></li>
         </ul>
 
-    </div>
+    </main>
 
-
-    <div id="footer" class="coloredbg">
-        <div class="socialLinks">
-            <a class="icon icon-instagram" href="https://www.instagram.com/trijyas.in/"></a>
-            <a class="icon icon-twitter" href="https://twitter.com/trijyas_in"></a>
-            <a class="icon icon-linkedin" href="https://www.linkedin.com/company/trijyas"></a>
-            <a class="icon icon-discord" href="https://discord.gg/Kjgc2qGCrD"></a>
-            <a class="icon icon-youtube" href="https://www.youtube.com/@trijyas_in"></a>
-            <a class="icon icon-telegram" href="https://t.me/trijyas"></a>
-            <a class="icon icon-whatsapp" href="https://whatsapp.com/channel/0029VamRAKD4o7qMN3IGBX24"></a>
-            <a class="icon icon-envelope" href="mailto:support@trijyas.in"></a>
+    <!-- ===== FOOTER ===== -->
+    <footer id="footer">
+        <div class="footer-inner">
+            <div class="footer-bottom">
+                <span>© 2022 – 2026 Trijyas. All rights reserved.</span>
+                <div>
+                    <a href="privacy">Privacy Policy</a>
+                    <a href="terms">Terms of Service</a>
+                </div>
+            </div>
         </div>
-        <div id="footer-nav">
-            <a class="nav-item" href="#about">ABOUT US</a>
-            <a class="nav-item" href="privacy">PRIVACY POLICY</a>
-            <a class="nav-item" href="terms">TERMS OF SERVICE</a>
-        </div>
-        <div id="copyright">Copyright Â© 2022 Trijyas</div>
+    </footer>
 
-    </div>
-</div>
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('open');
+            });
+        });
+    </script>
+    <script src="files/js/index.js"></script>
 </body>
-
 </html>
-

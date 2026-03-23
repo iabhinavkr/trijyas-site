@@ -57,7 +57,7 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#product">Product</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="contact" class="nav-cta">Contact Us</a></li>
+                <li><a href="#contact" class="nav-cta">Contact Us</a></li>
             </ul>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span></span><span></span><span></span>
@@ -162,10 +162,13 @@
                         </div>
                     </div>
 
-                    <a href="https://play.google.com/store/apps/details?id=com.ar4j.grid4artists" 
-                       class="download-badge" target="_blank" rel="noopener noreferrer">
-                        <img src="files/res/google-play.webp" alt="Get it on Google Play">
-                    </a>
+                    <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+                        <a href="https://play.google.com/store/apps/details?id=com.ar4j.grid4artists" 
+                           class="download-badge" target="_blank" rel="noopener noreferrer">
+                            <img src="files/res/google-play.webp" alt="Get it on Google Play">
+                        </a>
+                        <a href="apps/grid-app-for-artists/" class="btn btn-outline" style="border-color: var(--clr-accent); color: var(--clr-accent);">Learn More</a>
+                    </div>
                 </div>
 
                 <div class="product-visual fade-in fade-in-delay-2">
@@ -276,6 +279,32 @@
                     </div>
                 </div>
             </div>
+
+            <!-- MERGED CONTACT INTEGRATION -->
+            <div id="contact" class="contact-integration fade-in fade-in-delay-1">
+                <span class="section-label" style="margin-bottom: 0.2rem;">Contact Us</span>
+                <h2>Get in Touch</h2>
+                <p>Have any questions or ideas? We'd love to hear from you. Drop us an email or connect with us on social media.</p>
+
+                <div class="contact-action-card">
+                    <span class="card-icon icon icon-envelope"></span>
+                    <h3>Email Us</h3>
+                    <a href="mailto:support@trijyas.in" class="email-link">support@trijyas.in</a>
+                </div>
+
+                <div class="contact-social-wrap">
+                    <h4>Find Us On</h4>
+                    <div class="contact-social-grid">
+                        <a href="https://www.instagram.com/trijyas.in/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="contact-social-item"><span class="icon icon-instagram"></span></a>
+                        <a href="https://twitter.com/trijyas_in" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="contact-social-item"><span class="icon icon-twitter"></span></a>
+                        <a href="https://www.linkedin.com/company/trijyas" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="contact-social-item"><span class="icon icon-linkedin"></span></a>
+                        <a href="https://discord.gg/Kjgc2qGCrD" target="_blank" rel="noopener noreferrer" aria-label="Discord" class="contact-social-item"><span class="icon icon-discord"></span></a>
+                        <a href="https://www.youtube.com/@trijyas_in" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="contact-social-item"><span class="icon icon-youtube"></span></a>
+                        <a href="https://t.me/trijyas" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="contact-social-item"><span class="icon icon-telegram"></span></a>
+                        <a href="https://whatsapp.com/channel/0029VamRAKD4o7qMN3IGBX24" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="contact-social-item"><span class="icon icon-whatsapp"></span></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -298,7 +327,7 @@
                             <li><a href="#services">Services</a></li>
                             <li><a href="#product">Product</a></li>
                             <li><a href="#about">About Us</a></li>
-                            <li><a href="contact">Contact</a></li>
+                            <li><a href="#contact">Contact</a></li>
                         </ul>
                     </div>
                     <div class="footer-links">
@@ -365,7 +394,7 @@
         fadeElements.forEach(el => fadeObserver.observe(el));
 
         // Active nav link on scroll
-        const sections = document.querySelectorAll('section[id]');
+        const sections = document.querySelectorAll('section[id], #contact');
         window.addEventListener('scroll', () => {
             const scrollY = window.scrollY + 200;
             sections.forEach(section => {
