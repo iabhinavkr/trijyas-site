@@ -37,6 +37,22 @@
     </script>
 
     <style>
+        body {
+            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 50%, #80deea 100%);
+            color: #006064;
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        #navbar.scrolled {
+            background: rgba(224, 247, 250, 0.8) !important;
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .nav-inner a, .nav-logo {
+            color: #006064 !important;
+        }
+        
         .error-page {
             min-height: 100vh;
             display: flex;
@@ -45,25 +61,142 @@
             align-items: center;
             text-align: center;
             padding: 2rem;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
         }
         .error-code {
-            font-size: clamp(5rem, 15vw, 10rem);
+            font-size: clamp(6rem, 15vw, 12rem);
             font-weight: 900;
-            background: var(--clr-gradient-1);
+            background: linear-gradient(to right, #00838f, #00acc1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             line-height: 1;
             margin-bottom: 0.5rem;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.1);
         }
         .error-page h2 {
-            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
             margin-bottom: 1rem;
+            color: #00768c;
         }
         .error-page p {
-            color: var(--clr-text-muted);
+            color: #005e70;
             margin-bottom: 2rem;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
+            max-width: 500px;
+        }
+        
+        /* Floating Art Elements */
+        .art-elements {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .art-element {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.5;
+            animation: float-rotate 15s linear infinite;
+            filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.1));
+        }
+        .art-element:nth-child(1) { top: 15%; left: 10%; animation-duration: 20s; font-size: 4rem; }
+        .art-element:nth-child(2) { top: 20%; right: 15%; animation-duration: 25s; font-size: 3.5rem; animation-direction: reverse; }
+        .art-element:nth-child(3) { bottom: 25%; left: 15%; animation-duration: 22s; font-size: 3rem; }
+        .art-element:nth-child(4) { bottom: 15%; right: 10%; animation-duration: 18s; font-size: 4.5rem; animation-direction: reverse; }
+        .art-element:nth-child(5) { top: 40%; left: 5%; animation-duration: 30s; font-size: 2.5rem; }
+        .art-element:nth-child(6) { top: 60%; right: 5%; animation-duration: 28s; font-size: 3.2rem; }
+        .art-element:nth-child(7) { top: 75%; left: 40%; animation-duration: 24s; font-size: 3.8rem; }
+
+        @keyframes float-rotate {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-40px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+
+        /* Trivia Box */
+        .trivia-box {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            padding: 1.2rem 1.8rem;
+            max-width: 500px;
+            margin: 0 auto 2.5rem auto;
+            box-shadow: 0 8px 32px rgba(0, 131, 143, 0.1);
+            color: #005662;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+        .trivia-box strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #00838f;
+            font-size: 1.1rem;
+        }
+
+        /* Action Buttons */
+        .links-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: #00acc1;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 172, 193, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-primary:hover {
+            background: #00838f;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 131, 143, 0.3);
+        }
+
+        .featured-btn {
+            background: #fff;
+            color: #00838f;
+            border: 2px solid #00acc1;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .featured-btn:hover {
+            background: #e0f7fa;
+            color: #00838f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 172, 193, 0.2);
+        }
+        .tiny-logo {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+            border-radius: 4px;
+            object-fit: contain;
+        }
+        
+        @media (max-width: 600px) {
+            .links-container { flex-direction: column; }
         }
     </style>
 </head>
@@ -89,13 +222,45 @@
     </nav>
 
     <main class="error-page">
+        <!-- Floating Art Elements -->
+        <div class="art-elements">
+            <span class="art-element">🎨</span>
+            <span class="art-element">🖌️</span>
+            <span class="art-element">✏️</span>
+            <span class="art-element">🖍️</span>
+            <span class="art-element">🖼️</span>
+            <span class="art-element">📏</span>
+            <span class="art-element">✒️</span>
+        </div>
+
         <div class="error-code">404</div>
-        <h2>Page Not Found</h2>
-        <p>Looks like you've wandered off the grid. Let's get you back.</p>
-        <a href="/" class="btn btn-primary">Back to Home</a>
+        <h2>Oops! You've stepped off the canvas.</h2>
+        <p>Looks like you've wandered off the grid. Let's get you back to creating a masterpiece.</p>
+        
+        <div class="trivia-box">
+            <strong>Did you know?</strong> 
+            <span id="trivia-text">The color blue was so expensive during the Renaissance that it was reserved out of respect for only the most important figures in paintings.</span>
+        </div>
+
+        <div class="links-container">
+            <a href="/" class="btn-primary">Back to Home</a>
+            <a href="/apps/grid-app-for-artists/" class="featured-btn">
+                <img src="files/res/logo1.svg" alt="App Logo" class="tiny-logo">
+                Grid App for Artists
+            </a>
+        </div>
     </main>
 
     <script>
+        const facts = [
+            "The color blue was so expensive during the Renaissance that it was reserved out of respect for only the most important figures in paintings.",
+            "Leonardo da Vinci took 12 years to paint the Mona Lisa's lips.",
+            "Vincent van Gogh only sold one painting during his lifetime, 'The Red Vineyard'.",
+            "Pablo Picasso's first word was 'piz', short for 'lápiz', the Spanish word for pencil.",
+            "The 'Mona Lisa' has no clear eyebrows or eyelashes."
+        ];
+        document.getElementById('trivia-text').innerText = facts[Math.floor(Math.random() * facts.length)];
+
         const navToggle = document.getElementById('navToggle');
         const navLinks = document.getElementById('navLinks');
         navToggle.addEventListener('click', () => {
