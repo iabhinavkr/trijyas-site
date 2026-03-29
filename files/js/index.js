@@ -74,3 +74,44 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// Auto-scroll logic for reviews
+document.addEventListener('DOMContentLoaded', () => {
+    const reviewsScroll = document.querySelector('.reviews-scroll');
+    if (!reviewsScroll) return;
+
+    let autoScrollInterval;
+    let isScrolling = true;
+
+    const startScroll = () => {
+        if (!isScrolling) return;
+        autoScrollInterval = setInterval(() => {
+            const card = reviewsScroll.querySelector('.review-card');
+            if (!card) return;
+            
+            const cardWidth = card.offsetWidth + 24; // approximate gap
+            let maxScroll = reviewsScroll.scrollWidth - reviewsScroll.clientWidth;
+            
+            if (reviewsScroll.scrollLeft >= maxScroll - 10) {
+                // Reset to beginning smoothly
+                reviewsScroll.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                reviewsScroll.scrollBy({ left: cardWidth, behavior: 'smooth' });
+            }
+        }, 3000); // slide every 3 seconds
+    };
+
+    const stopScroll = () => {
+        clearInterval(autoScrollInterval);
+    };
+
+    startScroll();
+
+    // Pause on interaction
+    reviewsScroll.addEventListener('mouseenter', stopScroll);
+    reviewsScroll.addEventListener('mouseleave', startScroll);
+    reviewsScroll.addEventListener('touchstart', stopScroll, {passive: true});
+    reviewsScroll.addEventListener('touchend', () => {
+        setTimeout(startScroll, 2000);
+    }, {passive: true});
+});

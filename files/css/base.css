@@ -561,6 +561,8 @@ section {
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    width: 25%;
+    margin: 0 auto;
 }
 
 .product-image-wrap img {
