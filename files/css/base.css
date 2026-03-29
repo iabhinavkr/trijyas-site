@@ -1093,9 +1093,10 @@ section {
 }
 
 .footer-social {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 0.8rem;
-    flex-wrap: wrap;
+    width: fit-content;
 }
 
 .footer-social a {

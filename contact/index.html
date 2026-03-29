@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact — Trijyas</title>
-    <meta name="description" content="Get in touch with Trijyas. We'd love to hear from you — reach us via email, social media, or our community channels.">
+    <meta name="description"
+        content="Get in touch with Trijyas. We'd love to hear from you — reach us via email, social media, or our community channels.">
     <link rel="canonical" href="https://trijyas.in/contact/">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="../files/css/base.css">
@@ -20,7 +23,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-TBNP2N5ZYK"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-TBNP2N5ZYK');
     </script>
@@ -41,7 +44,7 @@
             margin-bottom: 0.5rem;
         }
 
-        .contact-page > p {
+        .contact-page>p {
             color: var(--clr-text-muted);
             font-size: 1.1rem;
             margin-bottom: 3rem;
@@ -68,9 +71,9 @@
         }
 
         .contact-card:hover {
-            border-color: rgba(255,255,255,0.12);
+            border-color: rgba(255, 255, 255, 0.12);
             transform: translateY(-4px);
-            box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
         }
 
         .contact-card .card-icon {
@@ -95,10 +98,12 @@
         }
 
         .contact-social {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(4, auto);
             gap: 0.8rem;
-            flex-wrap: wrap;
             justify-content: center;
+            max-width: fit-content;
+            margin: 0 auto;
         }
 
         .contact-social a {
@@ -142,8 +147,10 @@
                     <button id="themeToggle" class="theme-switch" aria-label="Toggle Theme">
                         <span id="themeIcon">
                             <!-- Moon Icon Default -->
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 24px; height: 24px;">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" style="width: 24px; height: 24px;">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M21.752 15.002A9.72 9.72 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
                             </svg>
                         </span>
                     </button>
@@ -170,13 +177,20 @@
 
         <h3 style="color: var(--clr-heading); margin-bottom: 1.2rem; font-size: 1.1rem;">Find Us On</h3>
         <div class="contact-social">
-            <a href="https://www.instagram.com/trijyas.in/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><span class="icon icon-instagram"></span></a>
-            <a href="https://twitter.com/trijyas_in" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><span class="icon icon-twitter"></span></a>
-            <a href="https://www.linkedin.com/company/trijyas" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><span class="icon icon-linkedin"></span></a>
-            <a href="https://discord.gg/Kjgc2qGCrD" target="_blank" rel="noopener noreferrer" aria-label="Discord"><span class="icon icon-discord"></span></a>
-            <a href="https://www.youtube.com/@trijyas_in" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><span class="icon icon-youtube"></span></a>
-            <a href="https://t.me/trijyas" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><span class="icon icon-telegram"></span></a>
-            <a href="https://whatsapp.com/channel/0029VamRAKD4o7qMN3IGBX24" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><span class="icon icon-whatsapp"></span></a>
+            <a href="https://www.instagram.com/trijyas.in/" target="_blank" rel="noopener noreferrer"
+                aria-label="Instagram"><span class="icon icon-instagram"></span></a>
+            <a href="https://twitter.com/trijyas_in" target="_blank" rel="noopener noreferrer"
+                aria-label="Twitter"><span class="icon icon-twitter"></span></a>
+            <a href="https://www.linkedin.com/company/trijyas" target="_blank" rel="noopener noreferrer"
+                aria-label="LinkedIn"><span class="icon icon-linkedin"></span></a>
+            <a href="https://discord.gg/Kjgc2qGCrD" target="_blank" rel="noopener noreferrer" aria-label="Discord"><span
+                    class="icon icon-discord"></span></a>
+            <a href="https://www.youtube.com/@trijyas_in" target="_blank" rel="noopener noreferrer"
+                aria-label="YouTube"><span class="icon icon-youtube"></span></a>
+            <a href="https://t.me/trijyas" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><span
+                    class="icon icon-telegram"></span></a>
+            <a href="https://whatsapp.com/channel/trijyas" target="_blank" rel="noopener noreferrer"
+                aria-label="WhatsApp"><span class="icon icon-whatsapp"></span></a>
         </div>
     </main>
 
@@ -209,4 +223,5 @@
     </script>
     <script src="../files/js/index.js"></script>
 </body>
+
 </html>

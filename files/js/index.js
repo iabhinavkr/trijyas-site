@@ -81,37 +81,44 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!reviewsScroll) return;
 
     let autoScrollInterval;
-    let isScrolling = true;
+    let isHovered = false;
+
+    // Enhance native smooth scrolling specifically for the container
+    reviewsScroll.style.scrollBehavior = 'smooth';
+
+    const scrollNext = () => {
+        if (isHovered) return;
+        const card = reviewsScroll.querySelector('.review-card');
+        if (!card) return;
+        
+        const cardWidth = card.offsetWidth;
+        const style = window.getComputedStyle(reviewsScroll);
+        const gap = parseInt(style.gap) || 24;
+        
+        const scrollStep = cardWidth + gap;
+        const maxScroll = reviewsScroll.scrollWidth - reviewsScroll.clientWidth;
+        
+        // Loop back smoothly if max reached
+        if (Math.ceil(reviewsScroll.scrollLeft) >= Math.floor(maxScroll) - 10) {
+            reviewsScroll.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            reviewsScroll.scrollBy({ left: scrollStep, behavior: 'smooth' });
+        }
+    };
 
     const startScroll = () => {
-        if (!isScrolling) return;
-        autoScrollInterval = setInterval(() => {
-            const card = reviewsScroll.querySelector('.review-card');
-            if (!card) return;
-            
-            const cardWidth = card.offsetWidth + 24; // approximate gap
-            let maxScroll = reviewsScroll.scrollWidth - reviewsScroll.clientWidth;
-            
-            if (reviewsScroll.scrollLeft >= maxScroll - 10) {
-                // Reset to beginning smoothly
-                reviewsScroll.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-                reviewsScroll.scrollBy({ left: cardWidth, behavior: 'smooth' });
-            }
-        }, 3000); // slide every 3 seconds
-    };
-
-    const stopScroll = () => {
         clearInterval(autoScrollInterval);
+        autoScrollInterval = setInterval(scrollNext, 2500);
     };
 
-    startScroll();
+    // Initiate slider after slight buffer
+    setTimeout(startScroll, 1000);
 
-    // Pause on interaction
-    reviewsScroll.addEventListener('mouseenter', stopScroll);
-    reviewsScroll.addEventListener('mouseleave', startScroll);
-    reviewsScroll.addEventListener('touchstart', stopScroll, {passive: true});
-    reviewsScroll.addEventListener('touchend', () => {
-        setTimeout(startScroll, 2000);
+    // Pause functionality on interaction
+    reviewsScroll.addEventListener('pointerenter', () => { isHovered = true; clearInterval(autoScrollInterval); });
+    reviewsScroll.addEventListener('pointerleave', () => { isHovered = false; startScroll(); });
+    reviewsScroll.addEventListener('touchstart', () => { isHovered = true; clearInterval(autoScrollInterval); }, {passive: true});
+    reviewsScroll.addEventListener('touchend', () => { 
+        setTimeout(() => { isHovered = false; startScroll(); }, 1500); 
     }, {passive: true});
 });
