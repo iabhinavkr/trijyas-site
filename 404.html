@@ -39,150 +39,151 @@
     </script>
 
     <style>
-        body {
-            background: linear-gradient(135deg, #e0ffff 0%, #00ffff 40%, #add8e6 100%);
-            color: #004d4d;
-            overflow-x: hidden;
-            font-family: 'Inter', sans-serif;
-        }
-
-        #navbar.scrolled {
-            background: rgba(224, 255, 255, 0.8) !important;
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-        }
-
-        .nav-inner a,
-        .nav-logo {
-            color: #004d4d !important;
-        }
-
-        /* Nav Tools Styling */
-        .nav-actions {
+        .error-page {
+            min-height: 100vh;
             display: flex;
-            align-items: center;
-            gap: 1.2rem;
-            margin-left: 1rem;
-        }
-
-        .theme-switch {
-            background: none;
-            border: none;
-            font-size: 1.2rem;
-            cursor: pointer;
-            color: inherit;
-            display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            transition: transform 0.3s ease;
-        }
-
-        .theme-switch:hover {
-            transform: scale(1.1);
-        }
-
-        .lang-selector {
-            position: relative;
-            cursor: pointer;
-            font-weight: 500;
-            font-size: 0.9rem;
-            color: #004d4d;
-        }
-
-        .current-lang {
-            display: flex;
             align-items: center;
-            gap: 0.3rem;
+            text-align: center;
+            padding: 8rem 2rem 2rem 2rem;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
         }
-
-        .lang-dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: #fff;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            padding: 0.5rem 0;
-            margin-top: 0.5rem;
-            list-style: none;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            min-width: 90px;
-        }
-
-        .lang-selector:hover .lang-dropdown {
-            display: block;
-        }
-
-        .lang-dropdown li a {
-            padding: 0.4rem 1rem;
-            display: block;
-            text-decoration: none;
-            color: #334155 !important;
-        }
-
-        .lang-dropdown li a:hover {
-            background: #e0f7fa;
-            color: #004d4d !important;
-        }
-
-        /* Dark Theme Variables / Overrides */
-        body.dark-theme {
-            background: linear-gradient(135deg, #001f1f 0%, #004d4d 40%, #006666 100%);
-            color: #e0ffff;
-        }
-
-        body.dark-theme #navbar.scrolled {
-            background: rgba(0, 31, 31, 0.8) !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        body.dark-theme .nav-inner a,
-        body.dark-theme .nav-logo,
-        body.dark-theme .lang-selector {
-            color: #e0ffff !important;
-        }
-
-        body.dark-theme .error-code {
-            background: linear-gradient(to right, #00ced1, #e0ffff);
+        .error-code {
+            font-size: clamp(5rem, 15vw, 10rem);
+            font-weight: 900;
+            background: var(--clr-gradient-1);
             -webkit-background-clip: text;
-            background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .error-page h2 {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            margin-bottom: 1rem;
+            color: var(--clr-heading);
+        }
+        .error-page p {
+            color: var(--clr-text-muted);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            max-width: 500px;
         }
 
-        body.dark-theme .error-page h2 { color: #00ced1; }
-        body.dark-theme .error-page p { color: #add8e6; }
-        body.dark-theme .trivia-box {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #e0ffff;
+        /* Floating Art Elements */
+        .art-elements {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
         }
-        body.dark-theme .trivia-box strong { color: #00ced1; }
-        body.dark-theme .lang-dropdown {
-            background: #001f1f;
-            border: 1px solid rgba(255,255,255,0.2);
+        .art-element {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.2;
+            animation: slow-shake 8s ease-in-out infinite;
+            filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1));
         }
-        body.dark-theme .lang-dropdown li a { color: #e0ffff !important; }
-        body.dark-theme .lang-dropdown li a:hover { background: #004d4d; color: #ffffff !important; }
-        body.dark-theme .art-svg { color: rgba(0, 206, 209, 0.3); }
+        .art-element:nth-child(1) { top: 15%; left: 10%; animation-duration: 9s; animation-delay: 0s; font-size: 4rem; }
+        .art-element:nth-child(2) { top: 20%; right: 15%; animation-duration: 10s; animation-delay: -2s; font-size: 3.5rem; }
+        .art-element:nth-child(3) { bottom: 25%; left: 15%; animation-duration: 8.5s; animation-delay: -4s; font-size: 3rem; }
+        .art-element:nth-child(4) { bottom: 15%; right: 10%; animation-duration: 11s; animation-delay: -1s; font-size: 4.5rem; }
+        .art-element:nth-child(5) { top: 40%; left: 5%; animation-duration: 12s; animation-delay: -3s; font-size: 2.5rem; }
+        .art-element:nth-child(6) { top: 60%; right: 5%; animation-duration: 9.5s; animation-delay: -5s; font-size: 3.2rem; }
+        .art-element:nth-child(7) { top: 75%; left: 40%; animation-duration: 10.5s; animation-delay: -2.5s; font-size: 3.8rem; }
+
+        @keyframes slow-shake {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            20% { transform: translate(-10px, 5px) rotate(-5deg); }
+            40% { transform: translate(10px, -5px) rotate(5deg); }
+            60% { transform: translate(-5px, 10px) rotate(-3deg); }
+            80% { transform: translate(5px, -10px) rotate(3deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
 
         .art-svg {
             width: 1em; height: 1em;
-            color: rgba(0, 139, 139, 0.4);
+            color: var(--clr-text-muted);
             transition: color 0.3s ease;
         }
+
+        /* Trivia Box */
+        .trivia-box {
+            background: var(--clr-surface);
+            border: 1px solid var(--clr-border);
+            border-radius: var(--radius-md);
+            padding: 1.2rem 1.8rem;
+            max-width: 500px;
+            margin: 0 auto 2.5rem auto;
+            color: var(--clr-text);
+            font-size: 0.95rem;
+            text-align: left;
+        }
+        .trivia-box strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--clr-accent);
+            font-size: 1.1rem;
+        }
+
+        /* Action Buttons */
+        .links-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: var(--clr-gradient-1);
+            color: #ffffff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--duration) var(--ease);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(6, 214, 160, 0.35);
+        }
         
-        .flag-icon {
+        .featured-btn {
+            background: transparent;
+            color: var(--clr-heading);
+            border: 1px solid var(--clr-border);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--duration) var(--ease);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .featured-btn:hover {
+            background: var(--clr-surface);
+            border-color: var(--clr-accent);
+            color: var(--clr-accent);
+            transform: translateY(-2px);
+        }
+        .tiny-logo {
             width: 20px;
-            height: auto;
-            border-radius: 2px;
+            height: 20px;
+            margin-right: 8px;
             object-fit: contain;
         }
-        .lang-item {
-            display: flex !important;
-            align-items: center;
-            gap: 0.5rem;
+        @media (max-width: 600px) {
+            .links-container { flex-direction: column; }
         }
+    </style>
 
         .error-page {
             min-height: 100vh;
@@ -430,23 +431,12 @@
                 <li class="nav-actions">
                     <button id="themeToggle" class="theme-switch" aria-label="Toggle Theme">
                         <span id="themeIcon">
-                            <!-- Moon Icon -->
+                            <!-- Moon Icon Default -->
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 24px; height: 24px;">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
                             </svg>
                         </span>
                     </button>
-                    <div class="lang-selector">
-                        <span class="current-lang">
-                            <img src="https://flagcdn.com/gb.svg" class="flag-icon" alt="EN"> EN ▾
-                        </span>
-                        <ul class="lang-dropdown">
-                            <li><a href="#" class="lang-item"><img src="https://flagcdn.com/gb.svg" class="flag-icon" alt="EN"> EN</a></li>
-                            <li><a href="#" class="lang-item"><img src="https://flagcdn.com/es.svg" class="flag-icon" alt="ES"> ES</a></li>
-                            <li><a href="#" class="lang-item"><img src="https://flagcdn.com/fr.svg" class="flag-icon" alt="FR"> FR</a></li>
-                            <li><a href="#" class="lang-item"><img src="https://flagcdn.com/in.svg" class="flag-icon" alt="HI"> HI</a></li>
-                        </ul>
-                    </div>
                 </li>
             </ul>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
@@ -496,24 +486,7 @@
         ];
         document.getElementById('trivia-text').innerText = facts[Math.floor(Math.random() * facts.length)];
 
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = document.getElementById('themeIcon');
-        
-        const moonSvg = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 24px; height: 24px;">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
-                         </svg>`;
-        const sunSvg = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 24px; height: 24px;">
-                           <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-                        </svg>`;
-        
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-theme');
-            if (document.body.classList.contains('dark-theme')) {
-                themeIcon.innerHTML = sunSvg;
-            } else {
-                themeIcon.innerHTML = moonSvg;
-            }
-        });
+
 
         const navToggle = document.getElementById('navToggle');
         const navLinks = document.getElementById('navLinks');

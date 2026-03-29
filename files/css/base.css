@@ -108,6 +108,46 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0.6rem 0;
 }
 
+/* Dark Theme Variables / Overrides */
+html[data-theme="dark"] {
+    --clr-bg: #0f172a;
+    --clr-bg-alt: #1e293b;
+    --clr-surface: #1e293b;
+    --clr-surface-hover: #334155;
+    --clr-border: #334155;
+    --clr-text: #cbd5e1;
+    --clr-text-muted: #94a3b8;
+    --clr-heading: #f8fafc;
+    --clr-gradient-hero: linear-gradient(160deg, #0f172a 0%, #1e293b 40%, #0f172a 100%);
+}
+html[data-theme="dark"] #navbar.scrolled {
+    background: rgba(15, 23, 42, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Theme Switch UI */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+.theme-switch {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--clr-heading);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.theme-switch:hover {
+    transform: scale(1.1);
+    color: var(--clr-accent);
+}
+
+
 .nav-inner {
     display: flex;
     align-items: center;
