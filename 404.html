@@ -38,20 +38,104 @@
 
     <style>
         body {
-            background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 50%, #80deea 100%);
-            color: #006064;
+            background: linear-gradient(135deg, #e0ffff 0%, #00ffff 40%, #add8e6 100%);
+            color: #004d4d;
             overflow-x: hidden;
             font-family: 'Inter', sans-serif;
         }
 
         #navbar.scrolled {
-            background: rgba(224, 247, 250, 0.8) !important;
+            background: rgba(224, 255, 255, 0.8) !important;
             backdrop-filter: blur(8px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.4);
         }
         .nav-inner a, .nav-logo {
-            color: #006064 !important;
+            color: #004d4d !important;
         }
+        
+        /* Nav Tools Styling */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-left: 1rem;
+        }
+        .theme-switch {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+        .theme-switch:hover { transform: scale(1.1); }
+        .lang-selector {
+            position: relative;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #004d4d;
+        }
+        .current-lang { display: flex; align-items: center; gap: 0.3rem; }
+        .lang-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%; right: 0;
+            background: #fff;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            list-style: none;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            min-width: 90px;
+        }
+        .lang-selector:hover .lang-dropdown { display: block; }
+        .lang-dropdown li a {
+            padding: 0.4rem 1rem;
+            display: block;
+            text-decoration: none;
+            color: #334155 !important;
+        }
+        .lang-dropdown li a:hover { background: #e0f7fa; color: #004d4d !important; }
+
+        /* Dark Theme Variables / Overrides */
+        body.dark-theme {
+            background: linear-gradient(135deg, #001f1f 0%, #004d4d 40%, #006666 100%);
+            color: #e0ffff;
+        }
+        body.dark-theme #navbar.scrolled {
+            background: rgba(0, 31, 31, 0.8) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        body.dark-theme .nav-inner a,
+        body.dark-theme .nav-logo,
+        body.dark-theme .lang-selector {
+            color: #e0ffff !important;
+        }
+        body.dark-theme .error-code {
+            background: linear-gradient(to right, #00ced1, #e0ffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        body.dark-theme .error-page h2 { color: #00ced1; }
+        body.dark-theme .error-page p { color: #add8e6; }
+        body.dark-theme .trivia-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #e0ffff;
+        }
+        body.dark-theme .trivia-box strong { color: #00ced1; }
+        body.dark-theme .lang-dropdown {
+            background: #001f1f;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        body.dark-theme .lang-dropdown li a { color: #e0ffff !important; }
+        body.dark-theme .lang-dropdown li a:hover { background: #004d4d; color: #ffffff !important; }
         
         .error-page {
             min-height: 100vh;
@@ -60,7 +144,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 2rem;
+            padding: 8rem 2rem 2rem 2rem;
             position: relative;
             z-index: 1;
             overflow: hidden;
@@ -68,7 +152,7 @@
         .error-code {
             font-size: clamp(6rem, 15vw, 12rem);
             font-weight: 900;
-            background: linear-gradient(to right, #00838f, #00acc1);
+            background: linear-gradient(to right, #008b8b, #00ced1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -79,10 +163,10 @@
         .error-page h2 {
             font-size: clamp(1.5rem, 4vw, 2.2rem);
             margin-bottom: 1rem;
-            color: #00768c;
+            color: #006666;
         }
         .error-page p {
-            color: #005e70;
+            color: #004d4d;
             margin-bottom: 2rem;
             font-size: 1.1rem;
             max-width: 500px;
@@ -99,42 +183,45 @@
         .art-element {
             position: absolute;
             font-size: 3rem;
-            opacity: 0.5;
-            animation: float-rotate 15s linear infinite;
+            opacity: 0.7;
+            animation: slow-shake 8s ease-in-out infinite;
             filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.1));
         }
-        .art-element:nth-child(1) { top: 15%; left: 10%; animation-duration: 20s; font-size: 4rem; }
-        .art-element:nth-child(2) { top: 20%; right: 15%; animation-duration: 25s; font-size: 3.5rem; animation-direction: reverse; }
-        .art-element:nth-child(3) { bottom: 25%; left: 15%; animation-duration: 22s; font-size: 3rem; }
-        .art-element:nth-child(4) { bottom: 15%; right: 10%; animation-duration: 18s; font-size: 4.5rem; animation-direction: reverse; }
-        .art-element:nth-child(5) { top: 40%; left: 5%; animation-duration: 30s; font-size: 2.5rem; }
-        .art-element:nth-child(6) { top: 60%; right: 5%; animation-duration: 28s; font-size: 3.2rem; }
-        .art-element:nth-child(7) { top: 75%; left: 40%; animation-duration: 24s; font-size: 3.8rem; }
+        .art-element:nth-child(1) { top: 15%; left: 10%; animation-duration: 9s; animation-delay: 0s; font-size: 4rem; }
+        .art-element:nth-child(2) { top: 20%; right: 15%; animation-duration: 10s; animation-delay: -2s; font-size: 3.5rem; }
+        .art-element:nth-child(3) { bottom: 25%; left: 15%; animation-duration: 8.5s; animation-delay: -4s; font-size: 3rem; }
+        .art-element:nth-child(4) { bottom: 15%; right: 10%; animation-duration: 11s; animation-delay: -1s; font-size: 4.5rem; }
+        .art-element:nth-child(5) { top: 40%; left: 5%; animation-duration: 12s; animation-delay: -3s; font-size: 2.5rem; }
+        .art-element:nth-child(6) { top: 60%; right: 5%; animation-duration: 9.5s; animation-delay: -5s; font-size: 3.2rem; }
+        .art-element:nth-child(7) { top: 75%; left: 40%; animation-duration: 10.5s; animation-delay: -2.5s; font-size: 3.8rem; }
 
-        @keyframes float-rotate {
-            0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-40px) rotate(180deg); }
-            100% { transform: translateY(0) rotate(360deg); }
+        @keyframes slow-shake {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            20% { transform: translate(-10px, 5px) rotate(-5deg); }
+            40% { transform: translate(10px, -5px) rotate(5deg); }
+            60% { transform: translate(-5px, 10px) rotate(-3deg); }
+            80% { transform: translate(5px, -10px) rotate(3deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
         }
 
         /* Trivia Box */
         .trivia-box {
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.8);
             border-radius: 12px;
             padding: 1.2rem 1.8rem;
             max-width: 500px;
             margin: 0 auto 2.5rem auto;
-            box-shadow: 0 8px 32px rgba(0, 131, 143, 0.1);
-            color: #005662;
+            box-shadow: 0 8px 32px rgba(0, 206, 209, 0.15);
+            color: #004d4d;
             font-size: 0.95rem;
             text-align: left;
         }
         .trivia-box strong {
             display: block;
             margin-bottom: 0.5rem;
-            color: #00838f;
+            color: #008b8b;
             font-size: 1.1rem;
         }
 
@@ -147,7 +234,7 @@
         }
         
         .btn-primary {
-            background: #00acc1;
+            background: #00ced1;
             color: #fff;
             border: none;
             padding: 0.75rem 1.5rem;
@@ -155,22 +242,22 @@
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 172, 193, 0.3);
+            box-shadow: 0 4px 6px rgba(0, 206, 209, 0.3);
             display: inline-flex;
             align-items: center;
             justify-content: center;
         }
         .btn-primary:hover {
-            background: #00838f;
+            background: #008b8b;
             color: #fff;
             transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 131, 143, 0.3);
+            box-shadow: 0 6px 12px rgba(0, 139, 139, 0.3);
         }
 
         .featured-btn {
             background: #fff;
-            color: #00838f;
-            border: 2px solid #00acc1;
+            color: #008b8b;
+            border: 2px solid #00ced1;
             padding: 0.75rem 1.5rem;
             border-radius: 8px;
             text-decoration: none;
@@ -182,10 +269,10 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
         .featured-btn:hover {
-            background: #e0f7fa;
-            color: #00838f;
+            background: #e0ffff;
+            color: #008b8b;
             transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 172, 193, 0.2);
+            box-shadow: 0 6px 12px rgba(0, 206, 209, 0.2);
         }
         .tiny-logo {
             width: 24px;
@@ -214,6 +301,20 @@
                 <li><a href="/#product">Product</a></li>
                 <li><a href="/#about">About</a></li>
                 <li><a href="contact" class="nav-cta">Contact Us</a></li>
+                <li class="nav-actions">
+                    <button id="themeToggle" class="theme-switch" aria-label="Toggle Theme">
+                        <span id="themeIcon">🌙</span>
+                    </button>
+                    <div class="lang-selector">
+                        <span class="current-lang">🇬🇧 EN ▾</span>
+                        <ul class="lang-dropdown">
+                            <li><a href="#">🇬🇧 EN</a></li>
+                            <li><a href="#">🇪🇸 ES</a></li>
+                            <li><a href="#">🇫🇷 FR</a></li>
+                            <li><a href="#">🇮🇳 HI</a></li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
                 <span></span><span></span><span></span>
@@ -260,6 +361,18 @@
             "The 'Mona Lisa' has no clear eyebrows or eyelashes."
         ];
         document.getElementById('trivia-text').innerText = facts[Math.floor(Math.random() * facts.length)];
+
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            if (document.body.classList.contains('dark-theme')) {
+                themeIcon.innerText = '☀️';
+            } else {
+                themeIcon.innerText = '🌙';
+            }
+        });
 
         const navToggle = document.getElementById('navToggle');
         const navLinks = document.getElementById('navLinks');
